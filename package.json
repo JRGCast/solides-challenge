@@ -2,9 +2,11 @@
   "name": "solides-challenge",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start-local": "ng serve --configuration=local",
+    "start-dev": "ng serve --configuration=development",
+    "build-dev": "ng build --configuration=development",
+    "build-qa": "ng build --configuration=qa",
+    "build-prod": "ng build --configuration=prod",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
