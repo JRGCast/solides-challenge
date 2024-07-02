@@ -1,22 +1,22 @@
 <app-common-header [headerConfig]="headerConfig"></app-common-header>
 <form [formGroup]="loginForm">
-    @for (config of inputsConfigs; track config) {
     <article>
         <img src="" alt="">
         <div>
-            <label for="{{config.label}}">{{config.label}}</label>
-            <input type="{{config.type}}" name="{{config.label}}" id="{{config.label}}"
-                placeholder="{{config.placeholder}}" formControlName="{{config.fControlName}}">
-            @if (loginForm.get(config.fControlName)?.touched && loginForm.get(config.fControlName)?.invalid) {
-                @if(loginForm.get(config.fControlName)?.hasError('required')) {
-                <small>{{config.label}} is required</small>
-                }
+            <label for="{{inputsConfig.email.label}}">{{inputsConfig.email.label}}</label>
+            <input type="{{inputsConfig.email.type}}" name="{{inputsConfig.email.label}}"
+                id="{{inputsConfig.email.label}}" placeholder="{{inputsConfig.email.placeholder}}"
+                formControlName="{{inputsConfig.email.fControlName}}">
+            @if (loginForm.get(inputsConfig.email.fControlName)?.touched &&
+            loginForm.get(inputsConfig.email.fControlName)?.invalid) {
+            @if(loginForm.get(inputsConfig.email.fControlName)?.hasError('required')) {
+            <small>{{inputsConfig.email.label}} is required</small>
+            }
 
-                @if(loginForm.get(config.fControlName)?.hasError('email')) {
-                <small>E-mail is not valid</small>
-                }
+            @if(loginForm.get(inputsConfig.email.fControlName)?.hasError('email')) {
+            <small>E-mail is not valid</small>
+            }
             }
         </div>
     </article>
-    }
 </form>
