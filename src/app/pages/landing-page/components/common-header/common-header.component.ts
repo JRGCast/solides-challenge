@@ -10,6 +10,5 @@ import { RouterLink } from '@angular/router';
 })
 export class CommonHeaderComponent {
   @Input() headerConfig!: { title: string; subtitle: string }
-  readonly imgSrc = "../../../assets/images/grayscale-plant.svg";
-  readonly arrowIconSrc = "../../../assets/icons/circle-arrow-left.svg";
+  readonly arrowIconSrc = "assets/icons/circle-arrow-left.svg";
 }
