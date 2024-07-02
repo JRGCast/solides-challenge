@@ -1,1 +1,10 @@
 <app-common-header [headerConfig]="headerConfig"></app-common-header>
+<section>
+    <form [formGroup]="createForm">
+        <div>
+            <label for="password">Password</label>
+            <input type="{{passwordInputType}}" name="password" id="password" formControlName="password">
+        <img src="{{passwordInputIcon}}" alt="" width="50px" height="50px">
+        </div>
+    </form>
+</section>
