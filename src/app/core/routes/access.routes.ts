@@ -2,10 +2,10 @@ import { Routes } from '@angular/router';
 
 export const ACCESS_ROUTES: Routes = [
     {
-        path: '', pathMatch: 'full',
+        path: '',
         loadComponent: () => import('../../pages/landing-page/landing-page.component').then(c => c.LandingPageComponent),
         children: [
-            { path: '', redirectTo: 'login' },
+            { path: '', pathMatch: 'full', redirectTo: 'login' },
             {
                 path: 'login',
                 loadComponent: () => import('../../pages/landing-page/components/login/login.component').then(c => c.LoginComponent)

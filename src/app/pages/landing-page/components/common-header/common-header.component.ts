@@ -1,12 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-common-header',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './common-header.component.html',
-  styleUrl: './common-header.component.sass'
+  styleUrl: './common-header.component.scss'
 })
 export class CommonHeaderComponent {
-
+  @Input() headerConfig!: { title: string; subtitle: string }
+  readonly imgSrc = "../../../assets/images/grayscale-plant.svg";
+  readonly arrowIconSrc = "../../../assets/icons/circle-arrow-left.svg";
 }

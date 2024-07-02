@@ -1,1 +1,12 @@
-<p>common-header works!</p>
+<section class="header-container">
+    <a routerLink="/">
+        <img class="circle-arrow-left" src="{{arrowIconSrc}}" alt="circle-arrow-left" role="presentation">
+    </a>
+
+    @if(headerConfig && headerConfig.title && headerConfig.subtitle) {
+    <h1 class="title">{{headerConfig.title}}</h1>
+    <h3 class="subtitle">{{headerConfig.subtitle}}</h3>
+    } @else {
+    <p>No header config passed</p>
+    }
+</section>
