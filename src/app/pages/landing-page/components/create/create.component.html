@@ -1,10 +1,73 @@
 <app-common-header [headerConfig]="headerConfig"></app-common-header>
 <section>
-    <form [formGroup]="createForm">
-        <div>
-            <label for="password">Password</label>
-            <input type="{{passwordInputType}}" name="password" id="password" formControlName="password">
-        <img src="{{passwordInputIcon}}" alt="" width="50px" height="50px">
-        </div>
+    <form class="form-container" [formGroup]="createForm">
+        <!-- Email -->
+        <section class="form-field-container">
+            <img src="{{inputsConfig.email.iconLeftSrc}}" alt="{{inputsConfig.email.label}}">
+            <div class="form-field-wrapper">
+                <label for="{{inputsConfig.email.label}}">{{inputsConfig.email.label}}</label>
+                <input type="{{inputsConfig.email.type}}" name="{{inputsConfig.email.label}}"
+                    id="{{inputsConfig.email.label}}" placeholder="{{inputsConfig.email.placeholder}}"
+                    formControlName="{{inputsConfig.email.fControlName}}">
+                @if (createForm.get(inputsConfig.email.fControlName)?.touched &&
+                createForm.get(inputsConfig.email.fControlName)?.invalid) {
+                @if(createForm.get(inputsConfig.email.fControlName)?.hasError('required')) {
+                <small>{{inputsConfig.email.label}} is required</small>
+                }
+
+                @if(createForm.get(inputsConfig.email.fControlName)?.hasError('email')) {
+                <small>E-mail is not valid</small>
+                }
+                }
+            </div>
+        </section>
+        <!-- Email end -->
+        <!-- Mobile Number -->
+        <section class="form-field-container">
+            <img src="{{inputsConfig.mobile.iconLeftSrc}}" alt="{{inputsConfig.mobile.label}}">
+            <div class="form-field-wrapper">
+                <label for="{{inputsConfig.mobile.label}}">{{inputsConfig.mobile.label}}</label>
+                <input type="{{inputsConfig.mobile.type}}" name="{{inputsConfig.mobile.label}}"
+                    id="{{inputsConfig.mobile.label}}" placeholder="{{inputsConfig.mobile.placeholder}}"
+                    formControlName="{{inputsConfig.mobile.fControlName}}">
+                @if (createForm.get(inputsConfig.mobile.fControlName)?.touched &&
+                createForm.get(inputsConfig.mobile.fControlName)?.invalid) {
+                @if(createForm.get(inputsConfig.mobile.fControlName)?.hasError('required')) {
+                <small>{{inputsConfig.mobile.label}} is required</small>
+                }
+
+                @if(createForm.get(inputsConfig.mobile.fControlName)?.hasError('pattern')) {
+                <small>Phone number invalid</small>
+                }
+                }
+            </div>
+        </section>
+        <!-- Mobile Number end -->
+        <!-- Password -->
+        <section class="form-field-container password-container">
+            <div class="form-password-wrapper">
+                <img src="{{inputsConfig.password.iconLeftSrc}}" alt="{{inputsConfig.password.label}}">
+                <div class="form-field-wrapper">
+                    <label for="{{inputsConfig.password.label}}">{{inputsConfig.password.label}}</label>
+                    <input type="{{inputsConfig.password.type}}" name="{{inputsConfig.password.label}}"
+                        id="{{inputsConfig.password.label}}" placeholder="{{inputsConfig.password.placeholder}}"
+                        formControlName="{{inputsConfig.password.fControlName}}">
+                    @if (createForm.get(inputsConfig.password.fControlName)?.touched &&
+                    createForm.get(inputsConfig.password.fControlName)?.invalid) {
+                    @if(createForm.get(inputsConfig.password.fControlName)?.hasError('required')) {
+                    <small>{{inputsConfig.password.label}} is required</small>
+                    }
+
+                    @if(createForm.get(inputsConfig.password.fControlName)?.hasError('email')) {
+                    <small>E-mail is not valid</small>
+                    }
+                    }
+                </div>
+            </div>
+            <img src="{{inputsConfig.password.iconRightSrc}}" alt="{{inputsConfig.password.label}}"
+                (click)="showHidePassword()">
+        </section>
+        <!-- Password end -->
     </form>
+    <app-common-button [config]="commonBtnConfig"></app-common-button>
 </section>

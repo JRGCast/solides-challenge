@@ -1,0 +1,39 @@
+@import '../../../assets/styles/colors';
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+    width: 311px;
+
+    small {
+        color: red;
+    }
+
+    .password-container {
+        justify-content: space-between;
+    }
+
+    .form-password-wrapper {
+        display: flex;
+        gap: 18px;
+    }
+
+    .form-field-container {
+        display: flex;
+        border: 1px solid $input-field-border;
+        border-radius: 8px;
+        gap: 18px;
+        padding: 15px 20px;
+    }
+
+    .form-field-wrapper {
+        display: flex;
+        flex-direction: column;
+
+        input {
+            border: none;
+        }
+    }
+}

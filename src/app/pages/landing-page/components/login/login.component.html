@@ -1,8 +1,8 @@
 <app-common-header [headerConfig]="headerConfig"></app-common-header>
-<form [formGroup]="loginForm">
-    <article>
-        <img src="" alt="">
-        <div>
+<form class="form-container" [formGroup]="loginForm">
+    <section class="form-field-container">
+        <img src="{{inputsConfig.email.iconLeftSrc}}" alt="{{inputsConfig.email.label}}">
+        <div class="form-field-wrapper">
             <label for="{{inputsConfig.email.label}}">{{inputsConfig.email.label}}</label>
             <input type="{{inputsConfig.email.type}}" name="{{inputsConfig.email.label}}"
                 id="{{inputsConfig.email.label}}" placeholder="{{inputsConfig.email.placeholder}}"
@@ -18,5 +18,32 @@
             }
             }
         </div>
-    </article>
+    </section>
+    <section class="form-field-container password-container">
+        <div class="form-password-wrapper">
+            <img src="{{inputsConfig.password.iconLeftSrc}}" alt="{{inputsConfig.password.label}}">
+            <div class="form-field-wrapper">
+                <label for="{{inputsConfig.password.label}}">{{inputsConfig.password.label}}</label>
+                <input type="{{inputsConfig.password.type}}" name="{{inputsConfig.password.label}}"
+                    id="{{inputsConfig.password.label}}" placeholder="{{inputsConfig.password.placeholder}}"
+                    formControlName="{{inputsConfig.password.fControlName}}">
+                @if (loginForm.get(inputsConfig.password.fControlName)?.touched &&
+                loginForm.get(inputsConfig.password.fControlName)?.invalid) {
+                @if(loginForm.get(inputsConfig.password.fControlName)?.hasError('required')) {
+                <small>{{inputsConfig.password.label}} is required</small>
+                }
+
+                @if(loginForm.get(inputsConfig.password.fControlName)?.hasError('email')) {
+                <small>E-mail is not valid</small>
+                }
+                }
+            </div>
+        </div>
+        <img src="{{inputsConfig.password.iconRightSrc}}" alt="{{inputsConfig.password.label}}"
+            (click)="showHidePassword()">
+    </section>
 </form>
+<div class="button-container">
+    <app-common-button [config]="loginBtnConfig"></app-common-button>
+    <app-common-button [config]="forgotBtnConfig"></app-common-button>
+</div>
