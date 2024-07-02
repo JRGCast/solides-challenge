@@ -1,0 +1,22 @@
+@import '../../../../../assets/styles/colors';
+
+.title {
+    color: $text-primary;
+    font-size: 1.5rem;
+    line-height: 28.08px;
+
+}
+
+.subtitle {
+    color: $text-secondary;
+    font-size: 0.875rem;
+    line-height: 19.32px;
+    text-align: left;
+
+}
+
+.title,
+.subtitle {
+    font-weight: 400;
+    text-align: left;
+}
