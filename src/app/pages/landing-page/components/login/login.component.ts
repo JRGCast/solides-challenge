@@ -4,11 +4,12 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { UserService } from 'src/app/data/services/user/user.service';
 import { JsonPipe } from '@angular/common';
 import { CommonButtonComponent } from 'src/app/miscellaneous/common-button/common-button.component';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonHeaderComponent, CommonButtonComponent, ReactiveFormsModule, JsonPipe],
+  imports: [CommonHeaderComponent, FooterComponent, CommonButtonComponent, ReactiveFormsModule, JsonPipe],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
@@ -23,8 +24,8 @@ export class LoginComponent implements OnInit {
   }
 
   loginForm = this.fb.group({
-    email: this.fb.control(null, { updateOn: 'blur', validators: [Validators.required, Validators.email] }),
-    password: this.fb.control(null, { updateOn: 'blur', validators: [Validators.required, Validators.minLength(6)] })
+    email: this.fb.control(null, { updateOn: 'change', validators: [Validators.required, Validators.email] }),
+    password: this.fb.control(null, { updateOn: 'change', validators: [Validators.required, Validators.minLength(6)] })
   })
 
   readonly inputsConfig = {
@@ -46,15 +47,18 @@ export class LoginComponent implements OnInit {
   }
 
   readonly loginBtnConfig = {
-    bgColor: '#BC8363',
     labelTxt: 'Login',
-    labelColor: '#FFF'
   }
 
   readonly forgotBtnConfig = {
-    bgColor: '#FFF',
     labelTxt: 'Forgot Password',
-    labelColor: '#BC8363'
+  }
+
+  readonly footerConfig = {
+    topTxt: 'Or Continue with Social Accounts',
+    bottomTxt: 'Don’t have an account?',
+    linkTxt: 'Create now',
+    linkRoute: 'create'
   }
 
   ngOnInit(): void {

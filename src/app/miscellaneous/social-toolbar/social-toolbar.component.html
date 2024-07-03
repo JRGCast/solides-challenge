@@ -1,1 +1,5 @@
-<p>social-toolbar works!</p>
+@for (socialLink of socialArray(); track socialLink) {
+    <a class="social-link" href="test" target="_blank" rel="noopener">
+        <img src="{{'assets/icons/' + socialLink.iconSrc + '.svg'}}" alt="{{socialLink.iconAlt}}" width="23.49px">
+    </a>
+}

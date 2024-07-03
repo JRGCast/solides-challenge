@@ -29,12 +29,13 @@
                     formControlName="{{inputsConfig.password.fControlName}}">
                 @if (loginForm.get(inputsConfig.password.fControlName)?.touched &&
                 loginForm.get(inputsConfig.password.fControlName)?.invalid) {
+                {{loginForm.get(inputsConfig.password.fControlName)?.errors | json}}
                 @if(loginForm.get(inputsConfig.password.fControlName)?.hasError('required')) {
                 <small>{{inputsConfig.password.label}} is required</small>
                 }
 
-                @if(loginForm.get(inputsConfig.password.fControlName)?.hasError('email')) {
-                <small>E-mail is not valid</small>
+                @if(loginForm.get(inputsConfig.password.fControlName)?.hasError('minLength')) {
+                <small>Password should contain at least 6 digits</small>
                 }
                 }
             </div>
@@ -44,6 +45,8 @@
     </section>
 </form>
 <div class="button-container">
-    <app-common-button [config]="loginBtnConfig"></app-common-button>
-    <app-common-button [config]="forgotBtnConfig"></app-common-button>
+    <app-common-button class="bg-orange" [config]="loginBtnConfig"
+        [disableBtn]="!!loginForm.invalid"></app-common-button>
+    <app-common-button class="bg-white" [config]="forgotBtnConfig"></app-common-button>
 </div>
+<app-footer [config]="footerConfig"></app-footer>

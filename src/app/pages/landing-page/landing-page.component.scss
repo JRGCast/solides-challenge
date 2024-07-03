@@ -1,11 +1,9 @@
 @import '../../../assets/styles/colors';
-
 .form-container {
     display: flex;
     flex-direction: column;
     gap: 8px;
     margin-bottom: 20px;
-    width: 311px;
 
     small {
         color: red;
@@ -13,6 +11,9 @@
 
     .password-container {
         justify-content: space-between;
+        img {
+            cursor: pointer;
+        }
     }
 
     .form-password-wrapper {
@@ -31,6 +32,8 @@
     .form-field-wrapper {
         display: flex;
         flex-direction: column;
+        gap: 8px;
+        font-size: 13px;
 
         input {
             border: none;

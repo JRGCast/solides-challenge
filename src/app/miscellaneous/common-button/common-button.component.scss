@@ -2,7 +2,27 @@
     button {
         border: none;
         border-radius: 8px;
+        cursor: pointer;
         padding: 20px;
         width: 311px;
+        &:active {
+            filter: brightness(1.2) !important;
+        }
+        &:disabled {
+            opacity: 0.3;
+        }
+    }  
+}
+:host-context(.bg-orange) {
+    button {
+        background-color: #BC8363;
+        color: #fff;
+    }
+}
+
+:host-context(.bg-white) {
+    button {
+        background-color: #fff;
+        color: #BC8363;
     }
 }

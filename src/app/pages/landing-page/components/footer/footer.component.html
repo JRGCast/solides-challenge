@@ -1,1 +1,9 @@
-<p>footer works!</p>
+@if(config) {
+<p>{{config.topTxt}}</p>
+<app-social-toolbar></app-social-toolbar>
+<div>
+    <p>{{config.bottomTxt}}
+        <a [routerLink]="'/' + config.linkRoute">{{config.linkTxt}}</a>
+    </p>
+</div>
+}

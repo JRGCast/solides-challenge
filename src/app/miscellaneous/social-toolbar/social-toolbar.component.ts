@@ -8,13 +8,10 @@ import { Component, Input, signal } from '@angular/core';
   styleUrl: './social-toolbar.component.scss'
 })
 export class SocialToolbarComponent {
-  @Input() config!: { topTxt: string; bottomTxt: string; linkTxt: string; linkRoute: string }
   socialArray = signal([
-    { iconSrc: 'Google', iconAlt: 'Google' },
-    { iconSrc: 'Google', iconAlt: 'Google' },
-    { iconSrc: 'Google', iconAlt: 'Google' },
-    { iconSrc: 'Google', iconAlt: 'Google' },
-    { iconSrc: 'Google', iconAlt: 'Google' },
-
+    { iconSrc: 'google', iconAlt: 'Google' },
+    { iconSrc: 'facebook', iconAlt: 'Facebook' },
+    { iconSrc: 'apple-black', iconAlt: 'Apple' },
+    { iconSrc: 'twitter', iconAlt: 'Twitter' },
   ])
 }
