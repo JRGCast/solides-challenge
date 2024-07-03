@@ -5,6 +5,7 @@ import { UserService } from 'src/app/data/services/user/user.service';
 import { JsonPipe } from '@angular/common';
 import { CommonButtonComponent } from 'src/app/miscellaneous/common-button/common-button.component';
 import { FooterComponent } from '../footer/footer.component';
+import { IUserLogin } from 'src/app/data/types/user/user.model';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ import { FooterComponent } from '../footer/footer.component';
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   private readonly fb = inject(FormBuilder);
   private readonly userService = inject(UserService);
   private readonly openEyeIconSrc = '../../../assets/icons/open-eye.svg'
@@ -61,13 +62,6 @@ export class LoginComponent implements OnInit {
     linkRoute: 'create'
   }
 
-  ngOnInit(): void {
-    this.loginForm.valueChanges.subscribe(c => {
-      console.log('changes', c)
-      console.log(this.loginForm.get('email'))
-    })
-  }
-
   showHidePassword(): void {
     if (this.inputsConfig.password.type === 'password') {
       this.inputsConfig.password.type = 'text';
@@ -76,5 +70,15 @@ export class LoginComponent implements OnInit {
       this.inputsConfig.password.type = 'password';
       this.inputsConfig.password.iconRightSrc = this.openEyeIconSrc;
     }
+  }
+
+  handleLoginClick(): void {
+    this.userService.login(this.loginForm.value as unknown as IUserLogin).subscribe({
+      next: _res => { alert('Logged in') }, error: err => { alert(err.message) }
+    })
+  }
+
+  handleForgotPasswordClick(): void {
+    alert('Forgot password clicked')
   }
 }

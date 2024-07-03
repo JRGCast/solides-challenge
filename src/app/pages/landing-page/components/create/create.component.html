@@ -38,6 +38,10 @@
             @if(createForm.get(inputsConfig.mobile.fControlName)?.hasError('pattern')) {
             <small>Phone number invalid</small>
             }
+
+            @if(createForm.get(inputsConfig.mobile.fControlName)?.hasError('minlength')) {
+                <small>Phone number must have 9 digits</small>
+                }
             }
         </div>
     </section>
@@ -57,7 +61,7 @@
                 <small>{{inputsConfig.password.label}} is required</small>
                 }
 
-                @if(createForm.get(inputsConfig.password.fControlName)?.hasError('minLength')) {
+                @if(createForm.get(inputsConfig.password.fControlName)?.hasError('minlength')) {
                 <small>Password should contain at least 6 digits</small>
                 }
                 }
@@ -70,6 +74,6 @@
 </form>
 <div class="button-container">
     <app-common-button class="bg-orange" [config]="createBtnConfig"
-        [disableBtn]="createForm.invalid"></app-common-button>
+        [disableBtn]="createForm.invalid" (notifyClick)="handleCreateAccClick()"></app-common-button>
 </div>
 <app-footer [config]="footerConfig"></app-footer>

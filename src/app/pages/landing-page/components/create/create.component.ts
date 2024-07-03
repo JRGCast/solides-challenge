@@ -2,9 +2,9 @@ import { Component, inject } from '@angular/core';
 import { CommonHeaderComponent } from '../common-header/common-header.component';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { UserService } from 'src/app/data/services/user/user.service';
-import { NgTemplateOutlet } from '@angular/common';
 import { CommonButtonComponent } from 'src/app/miscellaneous/common-button/common-button.component';
 import { FooterComponent } from '../footer/footer.component';
+import { IUserInfo } from 'src/app/data/types/user/user.model';
 
 @Component({
   selector: 'app-create',
@@ -76,5 +76,12 @@ export class CreateComponent {
     }
   }
 
+  handleCreateAccClick(): void {
+    this.userService.create(this.createForm.value as unknown as IUserInfo).subscribe({
+      next: _res => {
+        alert('User created!')
+      }, error: err => alert(err.message)
+    })
+  }
 
 }

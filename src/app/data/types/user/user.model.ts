@@ -1,6 +1,6 @@
 export interface IUserInfo {
 email: string;
-phone: string;
+mobile: string;
 password: string;
 }
 

@@ -29,12 +29,11 @@
                     formControlName="{{inputsConfig.password.fControlName}}">
                 @if (loginForm.get(inputsConfig.password.fControlName)?.touched &&
                 loginForm.get(inputsConfig.password.fControlName)?.invalid) {
-                {{loginForm.get(inputsConfig.password.fControlName)?.errors | json}}
+
                 @if(loginForm.get(inputsConfig.password.fControlName)?.hasError('required')) {
                 <small>{{inputsConfig.password.label}} is required</small>
                 }
-
-                @if(loginForm.get(inputsConfig.password.fControlName)?.hasError('minLength')) {
+                @if(loginForm.get(inputsConfig.password.fControlName)?.hasError('minlength')) {
                 <small>Password should contain at least 6 digits</small>
                 }
                 }
@@ -45,8 +44,9 @@
     </section>
 </form>
 <div class="button-container">
-    <app-common-button class="bg-orange" [config]="loginBtnConfig"
-        [disableBtn]="!!loginForm.invalid"></app-common-button>
-    <app-common-button class="bg-white" [config]="forgotBtnConfig"></app-common-button>
+    <app-common-button class="bg-orange" [config]="loginBtnConfig" [disableBtn]="!!loginForm.invalid"
+        (notifyClick)="handleLoginClick()"></app-common-button>
+    <app-common-button class="bg-white" [config]="forgotBtnConfig"
+        (notifyClick)="handleForgotPasswordClick()"></app-common-button>
 </div>
 <app-footer [config]="footerConfig"></app-footer>
