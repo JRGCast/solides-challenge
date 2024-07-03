@@ -1,4 +1,13 @@
 @import '../../../assets/styles/colors';
+
+main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+
+}
+
 .form-container {
     display: flex;
     flex-direction: column;
@@ -11,6 +20,7 @@
 
     .password-container {
         justify-content: space-between;
+
         img {
             cursor: pointer;
         }
